@@ -44,5 +44,10 @@ public class TeacherController implements UserController<Teacher> {
         teacherService.removeUser(fullName);
         return true;
     }
+
+    @Override
+    public Teacher getUser(String fullName) {
+        return teacherService.getUser(fullName);
+    }
     
 }

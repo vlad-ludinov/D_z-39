@@ -11,6 +11,8 @@ public interface UserController<T extends User> {
 
     void create(String fullName, Integer age, String phoneNumber);
 
+    T getUser(String fullName);
+
     List<T> getAll();
     
     List<T> getAllSortUsers();

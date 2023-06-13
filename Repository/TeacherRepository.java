@@ -42,5 +42,15 @@ public class TeacherRepository implements UserRepository<Teacher> {
         }
         return maxId;
     }
+
+    @Override
+    public Teacher getUser(String fullName) {
+        for (Teacher teacher : teachers) {
+            if (teacher.getFullName().equals(fullName)) {
+                return teacher;
+            }
+        }
+        return null;
+    }
     
 }

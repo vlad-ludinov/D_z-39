@@ -52,5 +52,10 @@ public class TeacherService implements UserService<Teacher> {
     public void removeUser(String fullName) {
         teacherRepository.remove(fullName);
     }
+
+    @Override
+    public Teacher getUser(String fullName) {
+        return teacherRepository.getUser(fullName);
+    }
     
 }

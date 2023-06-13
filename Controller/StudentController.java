@@ -8,7 +8,7 @@ import Service.UserService;
 
 public class StudentController implements UserController<Student>{
 
-    public UserService<Student> studentService;
+    private UserService<Student> studentService;
 
     public StudentController(StudentService studentService) {
         this.studentService = studentService;
@@ -43,6 +43,11 @@ public class StudentController implements UserController<Student>{
     public boolean removeUser(String fullName) {
         studentService.removeUser(fullName);
         return true;
+    }
+
+    @Override
+    public Student getUser(String fullName) {
+        return studentService.getUser(fullName);
     }
 
     

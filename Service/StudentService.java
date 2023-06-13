@@ -27,6 +27,7 @@ public class StudentService implements UserService<Student>{
     public List<Student> getAll() {
         return studentRepository.getAll();
     }
+
     
     @Override
     public List<Student> getAllSortUsers() {
@@ -52,6 +53,11 @@ public class StudentService implements UserService<Student>{
     @Override
     public void removeUser(String fullName) {
         studentRepository.remove(fullName);
+    }
+
+    @Override
+    public Student getUser(String fullName) {
+        return studentRepository.getUser(fullName);
     }
 
     

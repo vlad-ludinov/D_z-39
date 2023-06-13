@@ -2,8 +2,8 @@ package Model;
 
 public class Student extends User implements Comparable<Student> {
 
-    private Double gpa;
-    private String advistor;
+    // private Double gpa;
+    // private String advistor;
 
     public Student(Long id, String fullName, Integer age, String phoneNumber) {
         super(id, fullName, age, phoneNumber);
@@ -48,11 +48,11 @@ public class Student extends User implements Comparable<Student> {
         return String.format("%s\t%s\t%s\t%s", getId(), getFullName(), getAge(), getPhoneNumber());
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        String str = (String)obj;
-        return this.getFullName() == str;
-    }
+    // @Override
+    // public boolean equals(Object obj) {
+    //     String str = (String)obj;
+    //     return this.getFullName() == str;
+    // }
 
     public int compareLenght(String str1, String str2) {
         if (str1.length() < str2.length()) {

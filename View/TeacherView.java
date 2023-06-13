@@ -42,5 +42,18 @@ public class TeacherView implements UserView<Teacher> {
     public void removeUser(String fullName) {
         controller.removeUser(fullName);
     }
-    
+
+
+
+    @Override
+    public void sendOnConsoleUser(String fullName) {
+        Teacher teacher = controller.getUser(fullName);
+        if (teacher != null) {
+            System.out.println(teacher);
+        } else {
+            System.out.println("User non found");
+        } 
+    }
+
+
 }

@@ -9,6 +9,7 @@ public class StudentView implements UserView<Student>{
 
     UserController<Student> controller;
 
+
     public StudentView(UserController<Student> controller) {
         this.controller = controller;
     }
@@ -40,6 +41,17 @@ public class StudentView implements UserView<Student>{
     @Override
     public void removeUser(String fullName) {
         controller.removeUser(fullName);
+    }
+
+    
+    @Override
+    public void sendOnConsoleUser(String fullName) {
+        Student student = controller.getUser(fullName);
+        if (student != null) {
+            System.out.println(student);
+        } else {
+            System.out.println("User non found");
+        }
     }
     
 }
