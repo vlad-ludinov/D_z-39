@@ -6,7 +6,7 @@ import java.util.Random;
 
 import Model.Student;
 
-public class StudentRepository implements UserRepository<Student>{
+public class StudentRepository implements UserRepository<Student> {
 
     private List<Student> students;
 
@@ -72,4 +72,3 @@ public class StudentRepository implements UserRepository<Student>{
     }
 
 }
-

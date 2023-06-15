@@ -20,10 +20,6 @@ public class StudyGroup implements Iterable<Student> {
         students = new ArrayList<>();
     }
 
-
-
-    
-    
     @Override
     public Iterator<Student> iterator() {
         return new StudyGroupIterator(students);
@@ -63,8 +59,8 @@ public class StudyGroup implements Iterable<Student> {
 
     public boolean removeStudent(Student student) {
         // if (students.contains(student)) {
-        //     students.remove(students.indexOf(student));
-        //     return true;
+        // students.remove(students.indexOf(student));
+        // return true;
         // }
         // return false;
         return students.remove(student);
@@ -77,13 +73,16 @@ public class StudyGroup implements Iterable<Student> {
         }
     }
 
-
     @Override
     public String toString() {
         String res = String.format("Group %s\n Teacher:\n  %s\n Students:\n", groupName, teacher);
-        for (Student student : students) {
-            res += String.format("  %s\n", student);
+        for (int i = 0; i < students.size() - 1; i++) {
+            res += String.format("  %s\n", students.get(i));
         }
+        res += String.format("  %s", students.get(students.size() - 1));
+        // for (Student student : students) {
+        // res += String.format(" %s\n", student);
+        // }
         return res;
     }
 

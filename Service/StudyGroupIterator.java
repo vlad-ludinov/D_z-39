@@ -6,7 +6,6 @@ import java.util.NoSuchElementException;
 
 import Model.Student;
 
-
 public class StudyGroupIterator implements Iterator<Student> {
 
     private final List<Student> studentList;
@@ -21,13 +20,10 @@ public class StudyGroupIterator implements Iterator<Student> {
         return position < studentList.size();
     }
 
-    
     @Override
     public void remove() {
         studentList.remove(--position);
     }
-
-
 
     @Override
     public Student next() {

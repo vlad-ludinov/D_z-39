@@ -7,7 +7,7 @@ import Model.Student;
 import Repository.StudentRepository;
 import Repository.UserRepository;
 
-public class StudentService implements UserService<Student>{
+public class StudentService implements UserService<Student> {
 
     private final UserRepository<Student> studentRepository;
 
@@ -28,7 +28,6 @@ public class StudentService implements UserService<Student>{
         return studentRepository.getAll();
     }
 
-    
     @Override
     public List<Student> getAllSortUsers() {
         List<Student> students = studentRepository.getAll();
@@ -65,5 +64,4 @@ public class StudentService implements UserService<Student>{
         return studentRepository.getRandom(num);
     }
 
-    
 }

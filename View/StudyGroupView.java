@@ -6,16 +6,17 @@ import Controller.TeacherController;
 import Model.StudyGroup;
 
 public class StudyGroupView {
-    
+
     private final StudyGroupController controller;
     private final StudentController studentController;
     private final TeacherController teacherController;
 
-    public StudyGroupView(StudyGroupController controller, StudentController studentController, TeacherController teacherController) {
+    public StudyGroupView(StudyGroupController controller, StudentController studentController,
+            TeacherController teacherController) {
         this.controller = controller;
         this.studentController = studentController;
         this.teacherController = teacherController;
-    
+
     }
 
     public void SendOnConsole(String sortType) {
@@ -59,7 +60,7 @@ public class StudyGroupView {
 
     public void replaceTeacher(String fullName) {
         if (teacherController.getUser(fullName) != null) {
-            if (controller.replaceTeacher(teacherController.getUser(fullName))) {;
+            if (controller.replaceTeacher(teacherController.getUser(fullName))) {
                 System.out.println("Teacher changed");
             } else {
                 System.out.println("Teacher already selected");

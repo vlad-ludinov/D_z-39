@@ -1,7 +1,7 @@
 package Model;
 
 public class User {
-    
+
     private final Long id;
     private final String fullName;
     private final Integer age;

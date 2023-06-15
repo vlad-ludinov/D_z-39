@@ -9,7 +9,7 @@ import Model.StudyGroup;
 import Model.Teacher;
 
 public class StudyGroupService {
-    
+
     private StudyGroup studyGroup;
 
     public StudyGroupService(String groupName, Integer size) {
@@ -24,7 +24,7 @@ public class StudyGroupService {
                 studyGroup.addStudent(student);
             } else {
                 return false;
-            }   
+            }
         }
         return true;
     }
@@ -54,7 +54,7 @@ public class StudyGroupService {
     public StudyGroup getAll() {
         return studyGroup;
     }
-    
+
     public StudyGroup getAllSortUsers() {
         List<Student> students = new ArrayList<>(studyGroup.getStudents());
         Collections.sort(students);

@@ -6,7 +6,7 @@ import Model.Student;
 import Service.StudentService;
 import Service.UserService;
 
-public class StudentController implements UserController<Student>{
+public class StudentController implements UserController<Student> {
 
     private UserService<Student> studentService;
 
@@ -31,14 +31,14 @@ public class StudentController implements UserController<Student>{
 
     @Override
     public List<Student> getAllSortUsersBySurname() {
-        return studentService.getAllSortUsersBySurname();    
+        return studentService.getAllSortUsersBySurname();
     }
 
     @Override
     public List<Student> getAllSortUsersByAge() {
-        return studentService.getAllSortUsersByAge();    
+        return studentService.getAllSortUsersByAge();
     }
-    
+
     @Override
     public boolean removeUser(String fullName) {
         studentService.removeUser(fullName);
@@ -55,5 +55,4 @@ public class StudentController implements UserController<Student>{
         return studentService.getRandom(num);
     }
 
-    
 }

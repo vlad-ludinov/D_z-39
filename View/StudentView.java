@@ -5,10 +5,9 @@ import java.util.List;
 import Controller.UserController;
 import Model.Student;
 
-public class StudentView implements UserView<Student>{
+public class StudentView implements UserView<Student> {
 
     UserController<Student> controller;
-
 
     public StudentView(UserController<Student> controller) {
         this.controller = controller;
@@ -26,11 +25,11 @@ public class StudentView implements UserView<Student>{
         if (students == null) {
             return;
         }
-        System.out.println("===================================");        
+        System.out.println("===================================");
         for (Student student : students) {
             System.out.println(student);
         }
-        System.out.println("===================================");        
+        System.out.println("===================================");
     }
 
     @Override
@@ -43,7 +42,6 @@ public class StudentView implements UserView<Student>{
         controller.removeUser(fullName);
     }
 
-    
     @Override
     public void sendOnConsoleUser(String fullName) {
         Student student = controller.getUser(fullName);
@@ -53,5 +51,5 @@ public class StudentView implements UserView<Student>{
             System.out.println("User non found");
         }
     }
-    
+
 }

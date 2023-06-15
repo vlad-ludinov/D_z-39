@@ -18,11 +18,14 @@ public class Student extends User implements Comparable<Student> {
         String str2 = o.getFullName().toLowerCase().split(" ")[0];
         int length = compareLenght(str1, str2);
         for (int i = 0; i < length; i++) {
-            // HashCode русского алфавита идет по порядку, но буква ё почему-то сильно отличается
+            // HashCode русского алфавита идет по порядку, но буква ё почему-то сильно
+            // отличается
             if (Character.hashCode(str1.charAt(i)) == 1105 || Character.hashCode(str2.charAt(i)) == 1105) {
-                if (Character.hashCode(str2.charAt(i)) <= 1077 || Character.hashCode(str1.charAt(i)) != 1105 && Character.hashCode(str1.charAt(i)) >= 1078) {
+                if (Character.hashCode(str2.charAt(i)) <= 1077
+                        || Character.hashCode(str1.charAt(i)) != 1105 && Character.hashCode(str1.charAt(i)) >= 1078) {
                     return 1;
-                } else if (Character.hashCode(str1.charAt(i)) <= 1077 || Character.hashCode(str2.charAt(i)) != 1105 && Character.hashCode(str2.charAt(i)) >= 1078) {
+                } else if (Character.hashCode(str1.charAt(i)) <= 1077
+                        || Character.hashCode(str2.charAt(i)) != 1105 && Character.hashCode(str2.charAt(i)) >= 1078) {
                     return -1;
                 }
             } else if (Character.hashCode(str1.charAt(i)) > Character.hashCode(str2.charAt(i))) {
@@ -38,21 +41,19 @@ public class Student extends User implements Comparable<Student> {
         } else {
             return 0;
         }
-        
-        
-    }
 
+    }
 
     @Override
     public String toString() {
         return String.format("%s\t%s\t%s\t%s", getId(), getFullName(), getAge(), getPhoneNumber());
     }
 
-    // @Override
-    // public boolean equals(Object obj) {
-    //     String str = (String)obj;
-    //     return this.getFullName() == str;
-    // }
+    @Override
+    public boolean equals(Object obj) {
+        String str = (String) ((Student) obj).getFullName();
+        return this.getFullName() == str;
+    }
 
     public int compareLenght(String str1, String str2) {
         if (str1.length() < str2.length()) {
@@ -63,5 +64,5 @@ public class Student extends User implements Comparable<Student> {
             return str1.length();
         }
     }
-    
+
 }

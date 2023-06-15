@@ -26,7 +26,7 @@ public class TeacherView implements UserView<Teacher> {
         if (teachers == null) {
             return;
         }
-        System.out.println("===================================");        
+        System.out.println("===================================");
         for (Teacher teacher : teachers) {
             System.out.println(teacher);
         }
@@ -43,8 +43,6 @@ public class TeacherView implements UserView<Teacher> {
         controller.removeUser(fullName);
     }
 
-
-
     @Override
     public void sendOnConsoleUser(String fullName) {
         Teacher teacher = controller.getUser(fullName);
@@ -52,8 +50,7 @@ public class TeacherView implements UserView<Teacher> {
             System.out.println(teacher);
         } else {
             System.out.println("User non found");
-        } 
+        }
     }
-
 
 }

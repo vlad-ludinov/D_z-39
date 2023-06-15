@@ -5,7 +5,7 @@ import java.util.List;
 import Model.User;
 
 public interface UserRepository<T extends User> {
-    
+
     List<T> getAll();
 
     List<T> getRandom(Integer num);

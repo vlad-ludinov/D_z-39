@@ -5,7 +5,6 @@ import java.util.Random;
 import Controller.StudentController;
 import Controller.StudyGroupController;
 import Controller.TeacherController;
-import Model.Student;
 import Repository.StudentRepository;
 import Repository.TeacherRepository;
 import Service.StudentService;
@@ -17,34 +16,39 @@ import View.StudyGroupView;
 import View.TeacherView;
 
 public class Main {
-    
-    
+
     public static void main(String[] args) {
 
         List<Object> views = preparation("arc11", 10);
-        StudyGroupView studyGroupView = (StudyGroupView)views.get(0);
-        StudentView studentsView = (StudentView)views.get(1);
-        TeacherView teacherView = (TeacherView)views.get(2);
+        StudyGroupView studyGroupView = (StudyGroupView) views.get(0);
+        StudentView studentsView = (StudentView) views.get(1);
+        TeacherView teacherView = (TeacherView) views.get(2);
         // ----------------------------------------------------------------------
         for (int i = 0; i < 5; i++) {
-            teacherView.create((String.format("teacher%s surname%s", i, new Random().nextInt(0, 11))),
-            new Random().nextInt(40, 51), "999");
+            teacherView.create((String.format("teacher%s surname%s", i, (4 - i))),
+                    new Random().nextInt(40, 51), "999");
         }
-        for (int i = 0; i < 20; i++) {
-            studentsView.create((String.format("student%s surname%s", i, new Random().nextInt(0, 11))),
+        for (int i = 0; i < 10; i++) {
+            studentsView.create((String.format("student%s surname%s", i, (9 - i))),
                     new Random().nextInt(18, 26), "000");
         }
-        studyGroupView.formingGroup(15);
+        studyGroupView.formingGroup(10);
         studyGroupView.SendOnConsole(SortType.NONE);
-        studyGroupView.replaceTeacher("bbb ccc");
-        studyGroupView.addStudent("student29 surname0");
-        studyGroupView.SendOnConsole(SortType.FAMILY);
-        studyGroupView.removeStudent("student0 surname19");
+        studyGroupView.replaceTeacher("teacher0 surname4");
+        studyGroupView.addStudent("student0 surname9");
+        studyGroupView.removeStudent("student0 surname9");
         studyGroupView.SendOnConsole(SortType.NAME);
-        studyGroupView.formingGroup(5);
-        studyGroupView.addStudent("");
-
-
+        studyGroupView.replaceTeacher("student777 surname228");
+        studyGroupView.addStudent("student777 surname228");
+        studyGroupView.removeStudent("student0 surname19");
+        studyGroupView.SendOnConsole(SortType.FAMILY);
+        studyGroupView.replaceTeacher("teacher0 surname4");
+        studyGroupView.SendOnConsole(SortType.NONE);
+        studyGroupView.formingGroup(3);
+        studyGroupView.SendOnConsole(SortType.NONE);
+        studyGroupView.removeStudent("student0 surname9");
+        studyGroupView.addStudent("student0 surname9");
+        studyGroupView.SendOnConsole(SortType.AGE);
     }
 
     private static List<Object> preparation(String groupName, Integer size) {

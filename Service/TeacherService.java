@@ -24,7 +24,7 @@ public class TeacherService implements UserService<Teacher> {
 
     @Override
     public List<Teacher> getAll() {
-        return teacherRepository.getAll();    
+        return teacherRepository.getAll();
     }
 
     @Override
@@ -62,5 +62,5 @@ public class TeacherService implements UserService<Teacher> {
     public List<Teacher> getRandom(Integer num) {
         return teacherRepository.getRandom(num);
     }
-    
+
 }

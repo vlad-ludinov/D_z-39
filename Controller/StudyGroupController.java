@@ -8,7 +8,7 @@ import Model.Teacher;
 import Service.StudyGroupService;
 
 public class StudyGroupController {
-    
+
     private StudyGroupService service;
 
     public StudyGroupController(StudyGroupService service) {
@@ -23,8 +23,8 @@ public class StudyGroupController {
         return service.removeStudent(student);
     }
 
-    public void replaceTeacher(Teacher teacher) {
-        service.replaceTeacher(teacher);
+    public boolean replaceTeacher(Teacher teacher) {
+        return service.replaceTeacher(teacher);
     }
 
     public boolean addStudent(Student student) {

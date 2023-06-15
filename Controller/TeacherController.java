@@ -26,7 +26,7 @@ public class TeacherController implements UserController<Teacher> {
 
     @Override
     public List<Teacher> getAllSortUsers() {
-        return teacherService.getAllSortUsers();        
+        return teacherService.getAllSortUsers();
     }
 
     @Override
@@ -54,5 +54,5 @@ public class TeacherController implements UserController<Teacher> {
     public List<Teacher> getRandom(Integer num) {
         return teacherService.getRandom(num);
     }
-    
+
 }

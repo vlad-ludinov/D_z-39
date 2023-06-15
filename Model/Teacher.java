@@ -2,8 +2,6 @@ package Model;
 
 public class Teacher extends User implements Comparable<Teacher> {
 
-    
-
     public Teacher(Long id, String fullName, Integer age, String phoneNumber) {
         super(id, fullName, age, phoneNumber);
     }
@@ -15,11 +13,14 @@ public class Teacher extends User implements Comparable<Teacher> {
         String str2 = o.getFullName().toLowerCase().split(" ")[0];
         int length = compareLenght(str1, str2);
         for (int i = 0; i < length; i++) {
-            // HashCode русского алфавита идет по порядку, но буква ё почему-то сильно отличается
+            // HashCode русского алфавита идет по порядку, но буква ё почему-то сильно
+            // отличается
             if (Character.hashCode(str1.charAt(i)) == 1105 || Character.hashCode(str2.charAt(i)) == 1105) {
-                if (Character.hashCode(str2.charAt(i)) <= 1077 || Character.hashCode(str1.charAt(i)) != 1105 && Character.hashCode(str1.charAt(i)) >= 1078) {
+                if (Character.hashCode(str2.charAt(i)) <= 1077
+                        || Character.hashCode(str1.charAt(i)) != 1105 && Character.hashCode(str1.charAt(i)) >= 1078) {
                     return 1;
-                } else if (Character.hashCode(str1.charAt(i)) <= 1077 || Character.hashCode(str2.charAt(i)) != 1105 && Character.hashCode(str2.charAt(i)) >= 1078) {
+                } else if (Character.hashCode(str1.charAt(i)) <= 1077
+                        || Character.hashCode(str2.charAt(i)) != 1105 && Character.hashCode(str2.charAt(i)) >= 1078) {
                     return -1;
                 }
             } else if (Character.hashCode(str1.charAt(i)) > Character.hashCode(str2.charAt(i))) {
@@ -35,10 +36,8 @@ public class Teacher extends User implements Comparable<Teacher> {
         } else {
             return 0;
         }
-        
-        
-    }
 
+    }
 
     @Override
     public String toString() {
@@ -47,8 +46,7 @@ public class Teacher extends User implements Comparable<Teacher> {
 
     @Override
     public boolean equals(Object obj) {
-        String str = (String)((Teacher)obj).getFullName();
-        System.out.println(str);
+        String str = (String) ((Teacher) obj).getFullName();
         return this.getFullName() == str;
     }
 
@@ -61,6 +59,5 @@ public class Teacher extends User implements Comparable<Teacher> {
             return str1.length();
         }
     }
-
 
 }
