@@ -8,6 +8,8 @@ public interface UserRepository<T extends User> {
     
     List<T> getAll();
 
+    List<T> getRandom(Integer num);
+
     T getUser(String fullName);
 
     void add(T t);

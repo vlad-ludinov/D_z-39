@@ -47,7 +47,8 @@ public class Teacher extends User implements Comparable<Teacher> {
 
     @Override
     public boolean equals(Object obj) {
-        String str = (String)obj;
+        String str = (String)((Teacher)obj).getFullName();
+        System.out.println(str);
         return this.getFullName() == str;
     }
 

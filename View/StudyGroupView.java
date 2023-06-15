@@ -36,33 +36,48 @@ public class StudyGroupView {
 
     }
 
-    public void formingGroup(String fullNameTeacher) {
-        if (controller.formingGroup(teacherController.getUser(fullNameTeacher), studentController.getAll())) {
+    public void formingGroup(Integer numStudent) {
+        if (controller.formingGroup(teacherController.getRandom(1).get(0), studentController.getRandom(numStudent))) {
             System.out.println("Group formed");
         } else {
-            System.out.println("Group formed. Place into the group are over");
+            System.out.println("Group formed. Not all students fit into the group");
         }
 
     }
 
     public void removeStudent(String fullName) {
-        if (controller.removeStudent(studentController.getUser(fullName))) {
-            System.out.println("Student remove from group");
+        if (studentController.getUser(fullName) != null) {
+            if (controller.removeStudent(studentController.getUser(fullName))) {
+                System.out.println("Student remove from group");
+            } else {
+                System.out.println("Student not in the group");
+            }
         } else {
-            System.out.println("Student not in the group");
+            System.out.println("No such student");
         }
     }
 
     public void replaceTeacher(String fullName) {
-        controller.replaceTeacher(teacherController.getUser(fullName));
-        System.out.println("Teacher change");
+        if (teacherController.getUser(fullName) != null) {
+            if (controller.replaceTeacher(teacherController.getUser(fullName))) {;
+                System.out.println("Teacher changed");
+            } else {
+                System.out.println("Teacher already selected");
+            }
+        } else {
+            System.out.println("No such teacher");
+        }
     }
 
     public void addStudent(String fullName) {
-        if (controller.addStudent(studentController.getUser(fullName))) {
-            System.out.println("Student added to group");
+        if (studentController.getUser(fullName) != null) {
+            if (controller.addStudent(studentController.getUser(fullName))) {
+                System.out.println("Student added to group");
+            } else {
+                System.out.println("Group is full");
+            }
         } else {
-            System.out.println("Group is full");
+            System.out.println("No such student");
         }
     }
 

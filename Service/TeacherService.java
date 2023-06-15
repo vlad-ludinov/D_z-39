@@ -57,5 +57,10 @@ public class TeacherService implements UserService<Teacher> {
     public Teacher getUser(String fullName) {
         return teacherRepository.getUser(fullName);
     }
+
+    @Override
+    public List<Teacher> getRandom(Integer num) {
+        return teacherRepository.getRandom(num);
+    }
     
 }

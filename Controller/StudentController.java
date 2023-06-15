@@ -50,5 +50,10 @@ public class StudentController implements UserController<Student>{
         return studentService.getUser(fullName);
     }
 
+    @Override
+    public List<Student> getRandom(Integer num) {
+        return studentService.getRandom(num);
+    }
+
     
 }

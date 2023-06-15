@@ -49,5 +49,10 @@ public class TeacherController implements UserController<Teacher> {
     public Teacher getUser(String fullName) {
         return teacherService.getUser(fullName);
     }
+
+    @Override
+    public List<Teacher> getRandom(Integer num) {
+        return teacherService.getRandom(num);
+    }
     
 }

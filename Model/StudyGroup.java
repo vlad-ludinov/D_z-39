@@ -62,14 +62,18 @@ public class StudyGroup implements Iterable<Student> {
     }
 
     public boolean removeStudent(Student student) {
+        // if (students.contains(student)) {
+        //     students.remove(students.indexOf(student));
+        //     return true;
+        // }
+        // return false;
         return students.remove(student);
     }
 
     public void removeAllStudents() {
-        Iterator<Student> iter = students.iterator();
-        while (iter.hasNext()) {
-            
-            iter.next();
+        Integer currentSize = students.size();
+        for (int i = 0; i < currentSize; i++) {
+            students.remove(0);
         }
     }
 

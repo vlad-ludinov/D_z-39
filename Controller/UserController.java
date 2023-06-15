@@ -14,6 +14,8 @@ public interface UserController<T extends User> {
     T getUser(String fullName);
 
     List<T> getAll();
+
+    List<T> getRandom(Integer num);
     
     List<T> getAllSortUsers();
 

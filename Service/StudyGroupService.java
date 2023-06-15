@@ -1,5 +1,6 @@
 package Service;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -32,8 +33,13 @@ public class StudyGroupService {
         return studyGroup.removeStudent(student);
     }
 
-    public void replaceTeacher(Teacher teacher) {
-        studyGroup.setTeacher(teacher);
+    public boolean replaceTeacher(Teacher teacher) {
+        if (!studyGroup.getTeacher().equals(teacher)) {
+            studyGroup.setTeacher(teacher);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public boolean addStudent(Student student) {
@@ -50,7 +56,7 @@ public class StudyGroupService {
     }
     
     public StudyGroup getAllSortUsers() {
-        List<Student> students = studyGroup.getStudents();
+        List<Student> students = new ArrayList<>(studyGroup.getStudents());
         Collections.sort(students);
         studyGroup.removeAllStudents();
         for (Student student : students) {
@@ -60,7 +66,7 @@ public class StudyGroupService {
     }
 
     public StudyGroup getAllSortUsersBySurname() {
-        List<Student> students = studyGroup.getStudents();
+        List<Student> students = new ArrayList<>(studyGroup.getStudents());
         students.sort(new UserComporator<>());
         studyGroup.removeAllStudents();
         for (Student student : students) {
@@ -70,7 +76,7 @@ public class StudyGroupService {
     }
 
     public StudyGroup getAllSortUsersByAge() {
-        List<Student> students = studyGroup.getStudents();
+        List<Student> students = new ArrayList<>(studyGroup.getStudents());
         students.sort((o1, o2) -> o1.getAge().compareTo(o2.getAge()));
         studyGroup.removeAllStudents();
         for (Student student : students) {

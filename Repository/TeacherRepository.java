@@ -2,6 +2,7 @@ package Repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import Model.Teacher;
 
@@ -29,7 +30,7 @@ public class TeacherRepository implements UserRepository<Teacher> {
             if (teacher.getFullName().equals(fullName)) {
                 teachers.remove(teacher);
             }
-        }    
+        }
     }
 
     @Override
@@ -52,5 +53,22 @@ public class TeacherRepository implements UserRepository<Teacher> {
         }
         return null;
     }
-    
+
+    @Override
+    public List<Teacher> getRandom(Integer num) {
+        List<Teacher> selectedTeacher = new ArrayList<>();
+        Random rand = new Random();
+        Teacher teach;
+        if (teachers.size() < num) {
+            num = teachers.size();
+        }
+        while (selectedTeacher.size() < num) {
+            teach = teachers.get(rand.nextInt(0, teachers.size()));
+            if (!selectedTeacher.contains(teach)) {
+                selectedTeacher.add(teach);
+            }
+        }
+        return selectedTeacher;
+    }
+
 }

@@ -2,6 +2,7 @@ package Repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import Model.Student;
 
@@ -51,6 +52,23 @@ public class StudentRepository implements UserRepository<Student>{
             }
         }
         return null;
+    }
+
+    @Override
+    public List<Student> getRandom(Integer num) {
+        List<Student> selectedStudents = new ArrayList<>();
+        Random rand = new Random();
+        Student stud;
+        if (students.size() < num) {
+            num = students.size();
+        }
+        while (selectedStudents.size() < num) {
+            stud = students.get(rand.nextInt(0, students.size()));
+            if (!selectedStudents.contains(stud)) {
+                selectedStudents.add(stud);
+            }
+        }
+        return selectedStudents;
     }
 
 }

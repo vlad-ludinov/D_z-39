@@ -12,6 +12,8 @@ public interface UserService<T extends User> {
     
     List<T> getAll();
 
+    List<T> getRandom(Integer num);
+
     List<T> getAllSortUsers();
 
     List<T> getAllSortUsersBySurname();

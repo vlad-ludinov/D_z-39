@@ -60,5 +60,10 @@ public class StudentService implements UserService<Student>{
         return studentRepository.getUser(fullName);
     }
 
+    @Override
+    public List<Student> getRandom(Integer num) {
+        return studentRepository.getRandom(num);
+    }
+
     
 }
